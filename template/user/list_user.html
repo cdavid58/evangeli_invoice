@@ -1,0 +1,170 @@
+{% extends '../base.html' %}
+{% block content %}
+
+<!-- <div class="card mb-3 p-1" data-date="{{ i.registration_date }}">
+  <div class="card-body p-2 overflow-hidden">
+    <div class="row">
+      <div class="col-md-3 col-12">
+        <h5>Lista de usuarios</h5>
+      </div>
+      <div class="col-md-3 col-12 ml-auto">
+        {% if request.session.permission %}
+          {% if "Creador" in request.session.permission or "Todos" in request.session.permission %}
+            <button class="btn btn-info Add_User">Crear Usuario</button>
+          {% endif %}
+        {% endif %} 
+      </div>
+    </div>
+  </div>
+</div>
+<input type="text" id="searchInput" placeholder="Buscar un usuario..." class="form-control form-control-sm mb-2">
+
+<div class="card" data-date="{{ i.registration_date }}">
+  <div class="card-body p-2 overflow-hidden">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="text-dark fs-0">Image</th>
+            <th class="text-dark fs-0">Documento I.</th>
+            <th class="text-dark">Nombre de usuario</th>
+            <th class="text-dark">Activo</th>
+              {% if request.session.permission %}
+                {% if "Creador" in request.session.permission or "Todos" in request.session.permission %}
+                  <th class="text-dark">Acciones</th>
+                {% endif %}
+              {% endif %}
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in page_obj %}
+            <tr>
+              <td class="text-dark">
+                <a href="{{i.fields.img}}" target="_blank"><img class="img-fluid rounded-circle rounded-2 me-3 d-none d-md-block" src="{{i.fields.img}}" alt="Image Profile" alt="" width="60" /></a>
+              </td>
+              <td class="text-dark name{{i.pk}}">{{i.fields.identification_number}}</td>
+              <td class="text-dark">{{i.fields.first_name|title}} {{i.fields.surname|title}} </td>
+              <td class="text-dark">{% if i.fields.active %}Conectado{% else %}Desconectado{% endif %}</td>
+              <td>
+                {% if request.session.permission %}
+                  {% if "Editor" in request.session.permission or "Todos" in request.session.permission %}
+                    <button class="btn btn-primary view_employee" id="{{i.pk}}">Ver</button>
+                    <button class="btn btn-primary edit" id="{{i.pk}}">Editar</button>
+                  {% endif %}
+                  {% if "Eliminador" in request.session.permission or "Todos" in request.session.permission %}
+                    <button class="btn btn-danger delete" id="{{i.pk}}">Eliminar</button>
+                  {% endif %}
+                {% endif %}              
+              </td>  
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div> -->
+
+<!-- {% if page_obj.has_other_pages %}
+<div class="card-footer border-top d-flex justify-content-center">
+    {% if page_obj.has_previous %}
+      <a class="btn btn-falcon-default btn-sm me-2" href="?page=1" data-bs-toggle="tooltip" data-bs-placement="top" title="First">
+          <span class="fas fa-chevron-left"></span>
+      </a>
+    {% endif %}
+
+    {% for num in page_obj.paginator.page_range %}
+      {% if page_obj.number == num %}
+        <a class="btn btn-sm btn-falcon-default me-2 active">{{ num }}</a>
+      {% else %}
+        <a class="btn btn-sm btn-falcon-default me-2" href="?page={{ num }}">{{ num }}</a>
+      {% endif %}
+    {% endfor %}
+
+    {% if page_obj.has_next %}
+    <a class="btn btn-falcon-default btn-sm" href="?page={{ page_obj.paginator.num_pages }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Last">
+        <span class="fas fa-chevron-right"></span>
+    </a>
+    {% endif %}
+</div>
+{% endif %} -->
+
+
+
+<div class="card">
+  <div class="card-header bg-light">
+    <div class="row align-items-center">
+      <div class="col">
+        <h5 class="mb-0" id="followers">Lista de empleados</h5>
+      </div>
+      <div class="col">
+        <form>
+          <div class="row g-0">
+            <div class="col-3 ml-auto">
+              <a class="btn btn-info" href="{% url 'Create_Employee' %}">Crear Usuario</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="card-body bg-light px-1 py-0">
+    <div class="row g-0 text-center fs--1 dark__bg-1100">
+      {% for i in page_obj %}
+        <div class="col-6 col-md-4 col-lg-3 col-xxl-2 mb-1">
+          <div class="bg-white dark__bg-1100 p-3 h-100"><a href="javascript:void();" class="view_employee" id="{{i.pk}}"><img class="img-thumbnail img-fluid rounded-circle mb-3 shadow-sm" src="{{i.fields.img}}" alt="" width="100" /></a>
+            <h6 class="mb-1"><a href="javascript:void();" class="view_employee" id="{{i.pk}}" >{{i.fields.first_name|title}} {{i.fields.surname|title}}</a>
+            </h6>
+            {% if i.fields.active %}
+              <p class="fs--2 mb-1 text-success">Conectado</p>
+            {% else %}
+              <p class="fs--2 mb-1 text-danger">Desconectado</p>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
+{% block script %}
+
+  <script>
+    preferens_columm  = 0
+    $(document).ready(function(){
+      console.clear()
+      $('.Add_User').click(function(){
+        location.href = "{% url 'Create_Employee' %}"
+      })
+
+      $(document).on('click','.edit',function(){
+        location.href = '{{request.session.url}}/Get_Employee/'+this.id
+      })
+
+      $(document).on('click','.view_employee', function(){
+        location.href = '{{request.session.url}}/Get_All_Payroll_Employee/'+this.id
+      })
+
+      $(document).on('click','.delete',function(){
+        $(this).closest('tr').remove();
+        id = this.id
+        $.ajax({
+          url:"{% url 'Delete_Employee' %}",
+          data:{'pk_employee':id},
+          success: function(e){
+            _e = JSON.parse(e)
+            if(_e.result){
+              $.notify("Usuario eliminado con éxito",'success')
+            }
+            else{
+             $.notify(_e.message,'error') 
+            }
+          }
+        })
+      })
+
+    })
+  </script>
+
+{% endblock %}

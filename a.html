@@ -1,0 +1,248 @@
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+
+<style>
+
+    @media print {
+        th {
+            display: none;
+        }
+        #footer {
+            page-break-inside: avoid;
+            margin-top: 10px;
+        }
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: Roboto, sans-serif;
+    }
+
+    html, body {
+        width: 100%;
+        vertical-align: baseline;
+    }
+
+    body {
+        line-height: 1;
+        font-size: 8px;
+    }
+
+    #container {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    #header {
+        text-align: center;
+    }
+
+    #header > #reference p {
+        margin: 2px 0;
+        font-size: 6px;
+    }
+
+    .table {
+        width: 100%;
+        font-size: 8px;
+        border-collapse: collapse;
+    }
+
+    .table th, .table td {
+        border: 1px solid #ccc;
+        padding: 2px;
+        text-align: left;
+    }
+
+    .table th {
+        font-weight: bold;
+    }
+
+    .table td {
+        text-align: right;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .vertical-align-top {
+        vertical-align: top;
+    }
+
+    .text-right {
+        text-align: right !important;
+    }
+
+    #empresa-header {
+        text-align: center;
+        font-size: 10px;
+        font-weight: bold;
+    }
+
+    #empresa-header1 {
+        text-align: center;
+        font-size: 6px;
+    }
+
+    .table tr:nth-child(odd) td {
+        background-color: rgb(248, 249, 250);
+    }
+</style>
+
+<div id="container">
+    <div id="header">
+        <div id="reference">
+            <p>DOCUMENTO EQUIVALENTE ELECTRONICO DEL TIQUETE DE MAQUINA REGISTRADORA CON SISTEMA P.O.S.</p>
+            <p style="color: red; font-weight: bold;">AB - 123456</p>
+            <p style="color: red; font-weight: bold;">Fecha Emisión: 2024-09-09</p>
+            <p>Fecha Validación DIAN: 2024-09-09<br>Hora Validación DIAN: 12:34:56</p>
+        </div>
+    </div>
+
+    <div id="empresa-header">
+        Nombre de la Empresa
+    </div>
+    <div id="empresa-header1">
+        <p style="font-size: 6px">NIT: 900123456-7 - Régimen Común - IVA Responsable - Obligación: Declarar y Pagar</p>
+        <p style="font-size: 6px">Tipo Documento ID: Cédula de Ciudadanía</p><br>
+        <p style="font-size: 6px">Resolución de Facturación Electrónica No. 12345 de 2023-09-01, Prefijo: AB, Rango 1000 Al 9999 - Vigencia Desde: 2023-09-01 Hasta: 2024-09-01</p>
+        <p style="font-size: 6px">REPRESENTACION GRAFICA DE DOCUMENTO EQUIVALENTE ELECTRONICO DEL TIQUETE DE MAQUINA REGISTRADORA CON SISTEMA P.O.S.</p>
+        <p style="font-size: 6px">Carrera 7 No. 123 -</p>
+        <p style="font-size: 6px">Bogotá - Cundinamarca - Colombia</p>
+        <p style="font-size: 6px">Teléfono - 1234567890</p>
+        <p style="font-size: 6px">E-mail: info@empresa.com</p><br>
+        <img  style="width: 86px; height: auto;" src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Commons_QR_code.png" alt="QR">
+    </div><br>
+
+
+    <table class="table">
+        <tr>
+            <td style="width: 40%;">CC o NIT: 1231313213</td>
+            <td>Forma de Pago: Contado</td>
+        </tr>
+        <tr>
+            <td>Cliente: Nombre del Cliente</td>
+            <td>Medio de Pago: Efectivo</td>
+        </tr>
+        <tr>
+            <td>Dirección: Mi Direccion</td>
+            <td>Plazo Para Pagar: 0 Días</td>
+        </tr>
+        <tr>
+            <td>Ciudad: Medellin</td>
+            <td>Fecha Vencimiento: 2024-09-10</td>
+        </tr>
+    </table>
+    <br>
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="text-center">#</th>
+                <th class="text-center">Código</th>
+                <th class="text-center">Descripción</th>
+                <th class="text-center">Cant</th>
+                <th class="text-center">Val. Unit</th>
+                <th class="text-center">IVA/IC</th>
+                <th class="text-center">Dcto</th>
+                <th class="text-center">Val. Item</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td class="text-right">asdadasdsdad</td>
+                <td>AGUARDIENTE BOTELLA VERDE</td>
+                <td class="text-right">30</td>
+                <td class="text-right">25552.00</td>
+                <td class="text-right">0</td>
+                <td class="text-right">0</td>
+                <td class="text-right">315351</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <div class="container-fluid">
+        <div class="row">
+            <div style="width:100%;">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="text-center">Impuestos</th>
+                            <th class="text-center">Totales</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="width: 50%;vertical-align: top;">
+                                <table class="table" style="width: 100%">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">Tipo</th>
+                                            <th class="text-center">Base</th>
+                                            <th class="text-center">Porcentaje</th>
+                                            <th class="text-center">Valor</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>IVA</td>
+                                            <td class="text-right">5000</td>
+                                            <td class="text-right">19%</td>
+                                            <td class="text-right">5000</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                            <td style="width: 50%;">
+                                <table class="table" style="width: 100%">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">Tipo</th>
+                                            <th class="text-center">Base</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Nro Lineas:</td>
+                                            <td class="text-right">1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Base:</td>
+                                            <td class="text-right">123213</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Impuestos:</td>
+                                            <td class="text-right">123213</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Descuentos Globales:</td>
+                                            <td class="text-right">123213</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total Factura - Descuentos:</td>
+                                            <td class="text-right">123213</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total Factura:</td>
+                                            <td class="text-right">123213</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div id="footer">
+        <hr style="margin-bottom: 2px;">
+        <p id='mi-texto' style="font-size: 5px; text-align:center;">Factura No: FFET - 12312313 - Fecha y Hora de Generación: 2024-09-09 - 20:08</p>
+        <p style="font-size: 5px; text-align:center;">CUDE: 12345678901234567890123456789012345678901234567890</p>
+        <p id='mi-texto-1' style="font-size: 5px; text-align:center;">Factura electronica generada por Evansoft</p>
+    </div>
+</div>
